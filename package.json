@@ -1,0 +1,29 @@
+{
+  "name": "tech-blog-mvc",
+  "version": "1.0.0",
+  "description": "An example tech blog site for learning the Model-View-Controller (MVC) paradigm.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RicAdbur/tech-blog-mvc.git"
+  },
+  "author": "RicAdbur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RicAdbur/tech-blog-mvc/issues"
+  },
+  "homepage": "https://github.com/RicAdbur/tech-blog-mvc#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "connect-session-sequelize": "^7.1.7",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.2",
+    "express-session": "^1.17.3",
+    "mysql2": "^3.6.0",
+    "sequelize": "^6.33.0"
+  }
+}
