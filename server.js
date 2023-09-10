@@ -1,3 +1,5 @@
+require("dotenv").config();
+require("./models");
 const express = require("express");
 const { engine } = require("express-handlebars");
 const session = require("express-session");
