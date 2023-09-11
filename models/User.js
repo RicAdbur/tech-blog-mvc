@@ -3,7 +3,11 @@ const sequelize = require("../config/connection");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
-class User extends Model {};
+class User extends Model {
+  async checkPassword(plainTextPassword) {
+    return await bcrypt.compare(plainTextPassword, this.password)
+  }
+};
 
 User.init(
   {

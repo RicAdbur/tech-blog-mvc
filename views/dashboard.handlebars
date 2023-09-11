@@ -1,0 +1,19 @@
+{{#if user}}
+<div class="container mt-3" id="dashboard">
+  <h2>Dashboard</h2>
+
+  {{#each blogPosts as |blogPost|}}
+<div class="card mt-5 mb-1">
+  <a href="#"><h5 class="card-header fs-4">{{toUpperCase blogPost.title}}</h5></a>
+  <div class="card-body">
+    <p class="card-text">Posted by: {{'User.username'}} on {{blogPost.createdAt}}</p>
+  </div>
+    <a class="btn btn-warning" href="/edit">Edit</a>
+    <a class="btn btn-danger" href="/delete">Delete</a>
+</div>
+{{/each}}
+
+</div>
+{{else}}
+<p>You must log in to use the dashboard.</p>
+{{/if}}
