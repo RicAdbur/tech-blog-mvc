@@ -1,6 +1,6 @@
 {{#each blogPosts as |blogPost|}}
 <div class="card mt-5 mb-1">
-  <a href="#"><h5 class="card-header fs-4">{{toUpperCase blogPost.title}}</h5></a>
+  <a href="/post/{{blogPost.id}}"><h5 class="card-header fs-4">{{toUpperCase blogPost.title}}</h5></a>
   <div class="card-body">
     <p class="card-text">Posted by: {{'User.username'}} on {{blogPost.createdAt}}</p>
   </div>

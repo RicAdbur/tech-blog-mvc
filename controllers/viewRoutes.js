@@ -21,6 +21,24 @@ router.get("/", async (req, res) => {
   }
 })
 
+router.get("/post/:id", async (req, res) => {
+  try {
+    const blogPost = await BlogPost.findByPk(req.params.id, {
+      include: User,
+      raw: true 
+    })
+    // console.log(blogPosts)
+    res.render("post", {
+      ...blogPost,
+      user: req.session.user,
+    })
+    // console.log(req.session)
+  } catch(err) {
+    res.status(500).json(err)
+    console.error(err)
+  }
+})
+
 //signup
 router.get("/signup", async (req, res) => {
   try{
@@ -64,5 +82,16 @@ router.get("/dashboard", isAuthenticated, async (req, res) => {
     console.error(err)
   }
 })
+
+router.get("/addPost", isAuthenticated, async (req, res) => {
+  try {
+    res.render("addPost", {
+      user: req.session.user,
+    })
+  } catch(err) {
+    res.status(500).json(err)
+    console.error(err)
+  }
+});
 
 module.exports = router;

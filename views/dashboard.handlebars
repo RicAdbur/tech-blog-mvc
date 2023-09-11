@@ -1,6 +1,12 @@
 {{#if user}}
 <div class="container mt-3" id="dashboard">
-  <h2>Dashboard</h2>
+  <div class="container">
+    <h2 class="text-center mt-5">User Dashboard</h2>
+    <p class="text-center mt-1">Create, view, edit, or delete your posts.</p>
+    <div class="d-flex justify-content-center align-items-center">
+    <a class="btn btn-success" href="/addPost">New Post</a>
+    </div>
+  </div>
 
   {{#each blogPosts as |blogPost|}}
 <div class="card mt-5 mb-1">
@@ -8,8 +14,14 @@
   <div class="card-body">
     <p class="card-text">Posted by: {{'User.username'}} on {{blogPost.createdAt}}</p>
   </div>
-    <a class="btn btn-warning" href="/edit">Edit</a>
-    <a class="btn btn-danger" href="/delete">Delete</a>
+  <div class="row">
+    <div class="col-6">
+      <a class="btn btn-warning btn-block w-100" href="/edit">Edit</a>
+    </div>
+    <div class="col-6">
+      <a class="btn btn-danger btn-block btn-delete w-100" href="/delete" data-id="{{blogPost.id}}">Delete</a>
+    </div>
+  </div>
 </div>
 {{/each}}
 
@@ -17,3 +29,5 @@
 {{else}}
 <p>You must log in to use the dashboard.</p>
 {{/if}}
+
+<script src="/js/dashboard.js"></script>

@@ -12,10 +12,13 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(session({
-  secret: 'keyboard cat',
   store: new SequelizeStore({
     db: sequelize,
   }),
+  secret: process.env.SESSION_SECRET,
+  cookie: {
+    maxAge: 900000,
+  },
   resave: false,
   saveUninitialized: true,
 }))
