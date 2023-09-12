@@ -2,15 +2,15 @@ const newPostTitleInput = document.getElementById("newPostTitleInput");
 const newPostTextInput = document.getElementById("newPostTextInput");
 const newPostSubmitButton = document.getElementById("newPostSubmit");
 
-console.log(newPostTitleInput, newPostTextInput, newPostSubmitButton)
+// console.log(newPostTitleInput, newPostTextInput, newPostSubmitButton)
 
 const createPost = async (event) => {
   event.preventDefault()
 
   const title = newPostTitleInput.value.trim()
-  const text = newPostTextInput.value.trim()
+  const content = newPostTextInput.value.trim()
 
-  if (title && text) {
+  if (title && content) {
     await fetch("/api/blogPosts/create", {
       method: "POST",
       headers: {
@@ -18,7 +18,7 @@ const createPost = async (event) => {
       },
       body: JSON.stringify({
         title,
-        text,
+        content,
       })
     })
     .then(response => {

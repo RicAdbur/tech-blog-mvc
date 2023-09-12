@@ -66,6 +66,7 @@ router.get("/login", async (req, res) => {
 // dashboard
 router.get("/dashboard", isAuthenticated, async (req, res) => {
   try {
+    console.log(req.session.user.id)
     const blogPosts = await BlogPost.findAll({
       where: {
         userID: req.session.user.id
