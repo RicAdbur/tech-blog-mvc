@@ -1,5 +1,3 @@
-
-
 const deleteButtons = document.querySelectorAll(".btn-delete");
 
 for (const deleteButton of deleteButtons) {
